@@ -1,0 +1,434 @@
+/*==================== VARIABLES =====================*/
+
+:root {
+    --color-blanco-global: #FFFFFF;
+    --color-gris-fondo: #121111;
+    --color-azul-icono: #2E5067;
+    --color-gris-banda: #5957574d;
+    --color-gris-detalles: #575757;
+    --color-amarillo-claro: #E2B503;
+    --color-amarillo-oscuro: #8E7202;
+    --color-amarillo-drop-shadow: #483A01;
+}
+
+/*==================== ESTILOS GLOBALES =====================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+    background-color: var(--color-gris-fondo);
+    color: var(--color-blanco-global);
+    margin: 0;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+span {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/*==================== BOTON GLOBAL =====================*/
+.btn-global {
+    margin-top: 24px;
+    width: 433px;
+    height: 66px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 24px;
+    box-shadow: 0px 5px 0px var(--color-amarillo-drop-shadow);
+    background: linear-gradient(0deg, var(--color-amarillo-oscuro), var(--color-amarillo-claro));
+    color: var(--color-blanco-global);
+    padding: 0 24px;
+    border-radius: 32px;
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/*==================== MODAL GLOBAL =====================*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: var(--color-gris-fondo);
+    border: 2px solid var(--color-amarillo-claro);
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    text-align: left;
+    /* Alineación a la izquierda */
+    box-shadow: 0 0 30px var(--color-amarillo-drop-shadow);
+    animation: modalScale 0.3s ease-out;
+    color: var(--color-blanco-global);
+}
+
+@keyframes modalScale {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--color-amarillo-claro);
+}
+
+.modal-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--color-amarillo-claro);
+}
+
+.close-modal:hover {
+    color: var(--color-blanco-global);
+}
+
+.close-btn {
+    width: 100% !important;
+    height: 60px !important;
+    line-height: 20px !important;
+    margin-top: 10px;
+}
+
+/*==================== ASIDE SECTION =====================*/
+
+#aside__title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: var(--color-gris-banda);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/*==================== HERO SECTION =====================*/
+
+.hero {
+    background-image: url("../img/portada/fondo-portada.webp");
+    background-size: cover;
+    background-position: right top;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding-top: 80px;
+}
+
+.hero__content {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.hero__title {
+    margin-top: 32px;
+}
+
+.hero__promesa {
+    margin-top: 16px;
+    max-width: 450px;
+}
+
+.hero__meta {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+    width: max-content;
+}
+
+.fecha,
+.espejo,
+.horario {
+    background-color: var(--color-gris-detalles);
+    height: 44px;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0 15px;
+}
+
+.fecha {
+    width: 140px;
+}
+
+.espejo {
+    width: 253px;
+}
+
+.horario {
+    width: 176px;
+}
+
+/*==================== SECCION LOGROS =====================*/
+.achievements {
+    width: 100%;
+    min-height: 141px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    background-color: var(--color-gris-banda);
+    padding: 20px;
+}
+
+.achievement-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    min-width: 250px;
+}
+
+.achievement-card__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.achievement-card__icon img {
+    height: 90px;
+    width: 90px;
+}
+
+.achievement-card__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.achievement-card__title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 8px;
+}
+
+.achievement-card__description {
+    font-size: 12px;
+    color: var(--color-gris-detalles);
+    margin: 0;
+    max-width: 180px;
+}
+
+/* ================= SECCION ENCANTAGRAM ================= */
+
+.steps {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+.steps h2 {
+    width: 100%;
+    max-width: 1200px;
+    text-align: left;
+}
+
+.steps__container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding-top: 40px;
+}
+
+.steps__line {
+    margin-top: 32px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.step {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+.step__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.step__badge {
+    border: 2px solid var(--color-amarillo-claro);
+    border-radius: 20px;
+    padding: 4px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--color-amarillo-claro);
+    margin-bottom: 16px;
+    height: 30px;
+}
+
+.step__icon {
+    margin-top: -12px;
+    width: 30px;
+    height: 30px;
+}
+
+.step__content {
+    margin-top: 24px;
+    max-width: 450px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.step__content p {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-blanco-global);
+    opacity: 0.9;
+}
+
+.step__content a {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ================= SECCION SOBRE MI ================= */
+
+.closing {
+    margin-top: -100px;
+    background-image: url("../img/banner-sobre-mi/dumbledore-sobre-mi.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    /* Desplaza el contenido a la derecha */
+    width: 100%;
+    padding: 80px 10%;
+    /* Padding lateral para que no toque el borde */
+}
+
+.closing__content {
+    max-width: 600px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.closing__content h2 {
+    margin-top: 300px;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--color-blanco-global);
+}
+
+.closing__content p {
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.closing__content blockquote {
+    width: 530px;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 400;
+    border-left: 4px solid var(--color-amarillo-claro);
+    padding-left: 20px;
+}
+
+.location p {
+    margin-top: 250px;
+    width: 400px;
+    font-size: 16px;
+    color: var(--color-blanco-global);
+    font-weight: bold;
+}
