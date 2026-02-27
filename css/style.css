@@ -209,10 +209,9 @@ span {
     justify-content: start;
     align-items: center;
     gap: 12px;
-    flex-wrap: wrap;
-    /* Permite que se envuelva en pantallas pequeñas */
+    flex-wrap: nowrap;
     width: 100%;
-    max-width: 600px;
+    max-width: none;
 }
 
 .fecha,
@@ -225,19 +224,9 @@ span {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    padding: 0 15px;
-}
-
-.fecha {
-    width: 140px;
-}
-
-.espejo {
-    width: 253px;
-}
-
-.horario {
-    width: 176px;
+    padding: 0 20px;
+    width: fit-content;
+    white-space: nowrap;
 }
 
 /*==================== SECCION LOGROS =====================*/
