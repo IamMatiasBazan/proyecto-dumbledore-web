@@ -45,14 +45,14 @@ span {
 /*==================== BOTON GLOBAL =====================*/
 .btn-global {
     margin-top: 24px;
-    width: 433px;
+    width: 100%;
+    max-width: 433px;
     height: 66px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 16px;
     font-weight: bold;
-    margin-top: 24px;
     box-shadow: 0px 5px 0px var(--color-amarillo-drop-shadow);
     background: linear-gradient(0deg, var(--color-amarillo-oscuro), var(--color-amarillo-claro));
     color: var(--color-blanco-global);
@@ -60,7 +60,12 @@ span {
     border-radius: 32px;
     border: none;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: all 0.2s ease;
+}
+
+.btn-global:hover {
+    box-shadow: 0px 0px 0px var(--color-amarillo-drop-shadow);
+    transform: translateY(5px);
 }
 
 /*==================== MODAL GLOBAL =====================*/
@@ -163,16 +168,19 @@ span {
 .hero {
     background-image: url("../img/portada/fondo-portada.webp");
     background-size: cover;
-    background-position: right top;
+    background-position: 80% top;
+    /* Ajustado para que el personaje se vea mejor en pantallas estrechas */
     background-repeat: no-repeat;
     min-height: 100vh;
+    /* Ajustado para compensar el aside */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     margin: 0;
-    padding-top: 80px;
+    padding-top: 90px;
+    /* Offset para el contenido, pero la imagen empieza en el tope */
 }
 
 .hero__content {
@@ -201,8 +209,10 @@ span {
     justify-content: start;
     align-items: center;
     gap: 12px;
-    flex-wrap: nowrap;
-    width: max-content;
+    flex-wrap: wrap;
+    /* Permite que se envuelva en pantallas pequeñas */
+    width: 100%;
+    max-width: 600px;
 }
 
 .fecha,
@@ -234,14 +244,29 @@ span {
 .achievements {
     width: 100%;
     min-height: 141px;
+    background-color: var(--color-gris-banda);
+    padding: 20px 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.achievements__track {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
     gap: 50px;
-    flex-wrap: wrap;
-    background-color: var(--color-gris-banda);
-    padding: 20px;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .achievement-card {
@@ -250,6 +275,7 @@ span {
     align-items: center;
     gap: 16px;
     min-width: 250px;
+    flex-shrink: 0;
 }
 
 .achievement-card__icon {
@@ -356,6 +382,7 @@ span {
 
 .step__content {
     margin-top: 24px;
+    width: 100%;
     max-width: 450px;
     text-align: left;
     display: flex;
@@ -404,7 +431,8 @@ span {
 }
 
 .closing__content h2 {
-    margin-top: 300px;
+    margin-top: 0;
+    /* Eliminado margin-top excesivo */
     font-size: 32px;
     font-weight: bold;
     color: var(--color-blanco-global);
@@ -417,7 +445,8 @@ span {
 }
 
 .closing__content blockquote {
-    width: 530px;
+    width: 100%;
+    max-width: 530px;
     font-style: italic;
     font-size: 16px;
     font-weight: 400;
@@ -426,9 +455,118 @@ span {
 }
 
 .location p {
-    margin-top: 250px;
-    width: 400px;
+    margin-top: 40px;
+    /* Reducido de 250px */
+    width: 100%;
+    max-width: 400px;
     font-size: 16px;
     color: var(--color-blanco-global);
     font-weight: bold;
+}
+
+/* ================= MEDIA QUERIES ================= */
+
+/* Pantallas Medianas (Netbooks / Tablets Landscape) */
+@media screen and (max-width: 1024px) {
+    .hero__title {
+        font-size: 28px;
+    }
+
+    .achievements {
+        gap: 30px;
+    }
+
+    .steps__container {
+        gap: 20px;
+    }
+}
+
+/* Tablets (Portrait) */
+@media screen and (max-width: 900px) {
+    .steps__line {
+        display: none;
+        /* Ocultamos la línea en layout vertical */
+    }
+
+    .steps__container {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .step {
+        width: 100%;
+        max-width: 500px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .step__header {
+        flex-direction: column;
+    }
+
+    .step__content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .closing {
+        align-items: center;
+        padding: 80px 5%;
+        background-position: 30% center;
+    }
+
+    .closing__content {
+        text-align: center;
+        align-items: center;
+    }
+
+    .closing__content blockquote {
+        border-left: none;
+        border-top: 2px solid var(--color-amarillo-claro);
+        padding-left: 0;
+        padding-top: 20px;
+    }
+
+    .location p {
+        text-align: center;
+    }
+}
+
+/* Móviles */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .hero {
+        background-position: 75% center;
+    }
+
+    .hero__content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero__promesa {
+        max-width: 100%;
+    }
+
+    .hero__meta {
+        justify-content: center;
+    }
+
+    .achievement-card {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .step__badge {
+        font-size: 14px;
+        padding: 4px 15px;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
 }
